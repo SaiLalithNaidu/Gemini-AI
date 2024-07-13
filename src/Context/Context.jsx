@@ -25,8 +25,9 @@ const ContextProvider = (props) => {
         setInput("");
         let response;
         if (prompt !== undefined) {
-            response = await runChat(prompt);
             setRecentPrompt(prompt);
+            setPrevPrompt(prev => [...prev, prompt]);
+            response = await runChat(prompt);
         } else {
             setPrevPrompt(prev => [...prev, input]);
             setRecentPrompt(input);
@@ -52,6 +53,13 @@ const ContextProvider = (props) => {
         setInput("");
     }
 
+    const resetPrompts = () => {
+        setInput("");
+        setRecentPrompt("");
+        setShowResult(false);
+        setPrevPrompt([]); // Clear previous prompts when resetting
+    }
+
     const contextValue = {
         prevPrompt,
         setPrevPrompt,
@@ -62,7 +70,8 @@ const ContextProvider = (props) => {
         loading,
         resultData,
         input,
-        setInput
+        setInput,
+        resetPrompts // Add resetPrompts to the context
     }
 
     return (
