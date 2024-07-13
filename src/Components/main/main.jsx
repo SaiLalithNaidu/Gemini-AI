@@ -9,6 +9,12 @@ const Main = () => {
         recentPrompt, showResult, loading, resultData, input, setInput
     } = useContext(Context);
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            onSent(input);
+        }
+    };
+    
     return (
         <div className="main">
             <div className="nav">
@@ -67,6 +73,7 @@ const Main = () => {
                             value={input}
                             type="search"
                             placeholder='Enter a prompt here'
+                            onKeyPress={handleKeyPress}
                         />
                         <div>
                             <img src={assets.gallery_icon} alt="Gallery Icon" />
@@ -80,6 +87,4 @@ const Main = () => {
         </div>
     );
 }
-
-
 export default Main;
