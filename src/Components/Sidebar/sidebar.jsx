@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import './sidebar.css';
 import { assets } from '../../assets/assets';
 import { Context } from '../../Context/Context';
-import Dropdown from '../Dropdown/Dropdown';
 
 
 const Sidebar = () => {
@@ -17,12 +16,6 @@ const Sidebar = () => {
     const newChat = () => {
         resetPrompts();
     };
-
-    const settingsOptions = [
-        { label: 'Option 1', action: () => toast.info('Option 1 clicked!') },
-        { label: 'Option 2', action: () => toast.info('Option 2 clicked!') },
-        { label: 'Option 3', action: () => toast.info('Option 3 clicked!') },
-    ];
 
     
     return (

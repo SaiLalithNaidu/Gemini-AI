@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import './main.css';
 import { assets } from '../../assets/assets';
 import { Context } from '../../Context/Context';
-import Dropdown from '../Dropdown/Dropdown';
 
 
 
@@ -25,7 +24,7 @@ const Main = () => {
         setInput(prompt);
         onSent(prompt);
     };
-    
+
     return (
         <div className="main">
             <ToastContainer />
