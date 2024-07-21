@@ -1,24 +1,27 @@
-.sidebar
-{
-    display: inline-flex;
+/* sidebar.css */
+
+.sidebar {
+    display: flex;
     justify-content: space-between;
     min-height: 100vh;
     flex-direction: column;
     background-color: #f0f4f9;
     padding: 25px 15px;
 }
-.sidebar img{
+
+.sidebar img {
     width: 20px;
 }
-.sidebar .menue{
+
+.sidebar .menue {
     display: block;
     margin-left: 10px;
     cursor: pointer;
 }
-.sidebar .new-chat
-{
+
+.sidebar .new-chat {
     margin-top: 50px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
@@ -28,20 +31,19 @@
     color: gray;
     cursor: pointer;
 }
-.sidebar .recent
-{
+
+.sidebar .recent {
     display: flex;
     flex-direction: column;
     animation: fadeIn 1.5s;
 }
-.sidebar .recent-title
-{
+
+.sidebar .recent-title {
     margin-top: 30px;
     margin-bottom: 20px;
-
 }
-.sidebar .recent-entry
-{
+
+.sidebar .recent-entry {
     display: flex;
     align-items: start;
     gap: 10px;
@@ -51,20 +53,61 @@
     color: #282828;
     cursor: pointer;
 }
-.sidebar .recent-entry:hover{
+
+.sidebar .recent-entry:hover {
     background-color: #e2e6eb;
 }
-.sidebar .bottom
-{
+
+.sidebar .bottom {
     display: flex;
     flex-direction: column;
 }
-.sidebar .bottom-item
-{
+
+.sidebar .bottom-item {
     padding-right: 10px;
     cursor: pointer;
 }
 
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Ensure it covers the full height */
+        padding: 10px;
+        z-index: 1000;
+        background-color: #f0f4f9;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .sidebar .top, .sidebar .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
 
+    .sidebar .new-chat {
+        margin-top: 0;
+        padding: 10px;
+        font-size: 12px;
+    }
 
+    .sidebar .recent, .sidebar .bottom {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sidebar .recent-entry, .sidebar .bottom-item {
+        padding: 5px;
+        width: 100%;
+    }
+
+    .sidebar .menue {
+        margin-left: 0;
+    }
+}
